@@ -19,4 +19,3 @@
 
 #### Linked Issue
 close `#Issue number`
-
