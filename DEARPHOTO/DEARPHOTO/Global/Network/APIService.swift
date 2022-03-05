@@ -6,3 +6,4 @@ protocol APIService {
     
     func getRequest<T: Decodable>(with urlResource: urlResource<T>) -> Observable<Result<T, APIError>>
 }
+

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFPRODISPLAYREGULAR.OTF">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentTVC" id="KGk-i7-Jjw" customClass="CommentTVC" customModule="DEARPHOTO" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자 닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTQ-hi-aCU">
+                        <rect key="frame" x="64" y="15" width="71" height="16"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="댓글 내용" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PSL-zm-H8f">
+                        <rect key="frame" x="64" y="36" width="200" height="49"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글 작성 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SJ-qV-0CM">
+                        <rect key="frame" x="64" y="93" width="49" height="12"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdI-AL-D5q">
+                        <rect key="frame" x="123" y="93" width="56" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="6ZX-Tg-PT8"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="답글 달기"/>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Null_Comment" translatesAutoresizingMaskIntoConstraints="NO" id="Wra-La-RTg">
+                        <rect key="frame" x="24" y="15" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="VZv-6l-S2t"/>
+                            <constraint firstAttribute="width" constant="30" id="dPw-oz-78X"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eV-yh-uGh">
+                        <rect key="frame" x="272" y="15" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="ghH-vJ-Siv"/>
+                            <constraint firstAttribute="width" constant="24" id="rXB-sv-5Jx"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="Menu_Vertical"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5SJ-qV-0CM" firstAttribute="top" secondItem="PSL-zm-H8f" secondAttribute="bottom" constant="8" id="2QM-AT-TFi"/>
+                    <constraint firstItem="PSL-zm-H8f" firstAttribute="leading" secondItem="Wra-La-RTg" secondAttribute="trailing" constant="10" id="8yV-dX-xHE"/>
+                    <constraint firstItem="oTQ-hi-aCU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="9js-kY-tAk"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5SJ-qV-0CM" secondAttribute="bottom" constant="4" id="P8v-M9-AZw"/>
+                    <constraint firstItem="0eV-yh-uGh" firstAttribute="leading" secondItem="PSL-zm-H8f" secondAttribute="trailing" constant="8" symbolic="YES" id="TiI-eQ-OOC"/>
+                    <constraint firstItem="0eV-yh-uGh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="UyH-7g-fT7"/>
+                    <constraint firstAttribute="trailing" secondItem="0eV-yh-uGh" secondAttribute="trailing" constant="24" id="VVW-kG-B4i"/>
+                    <constraint firstItem="5SJ-qV-0CM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="48" id="a3O-dh-iB0"/>
+                    <constraint firstItem="oTQ-hi-aCU" firstAttribute="leading" secondItem="Wra-La-RTg" secondAttribute="trailing" constant="10" id="b8m-Ud-8M6"/>
+                    <constraint firstItem="NdI-AL-D5q" firstAttribute="centerY" secondItem="5SJ-qV-0CM" secondAttribute="centerY" id="eg0-Yy-0bR"/>
+                    <constraint firstItem="oTQ-hi-aCU" firstAttribute="leading" secondItem="Wra-La-RTg" secondAttribute="trailing" constant="10" id="h5A-7o-C94"/>
+                    <constraint firstItem="Wra-La-RTg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="lXU-Hc-qio"/>
+                    <constraint firstItem="PSL-zm-H8f" firstAttribute="top" secondItem="oTQ-hi-aCU" secondAttribute="bottom" constant="5" id="mlm-YW-qU9"/>
+                    <constraint firstItem="NdI-AL-D5q" firstAttribute="leading" secondItem="5SJ-qV-0CM" secondAttribute="trailing" constant="10" id="s1T-cT-7VY"/>
+                    <constraint firstItem="Wra-La-RTg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="zdQ-1T-KqU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="commentContent" destination="PSL-zm-H8f" id="Jwb-bR-E2g"/>
+                <outlet property="createAt" destination="5SJ-qV-0CM" id="90O-Em-pcN"/>
+                <outlet property="createCommentButton" destination="NdI-AL-D5q" id="XYR-6L-EiC"/>
+                <outlet property="profileImg" destination="Wra-La-RTg" id="Z1V-i6-0d7"/>
+                <outlet property="userName" destination="oTQ-hi-aCU" id="nTF-89-Hjh"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="80"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Menu_Vertical" width="24" height="24"/>
+        <image name="Null_Comment" width="60" height="60"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
