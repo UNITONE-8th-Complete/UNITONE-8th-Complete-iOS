@@ -1,14 +1,16 @@
 //
-//  HomeVC.swift
+//  HomeNC.swift
 //  DEARPHOTO
 //
-//  Created by 황윤경 on 2022/03/05.
+//  Created by InJe Choi on 2022/03/05.
 //
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeNC: UINavigationController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
 }
