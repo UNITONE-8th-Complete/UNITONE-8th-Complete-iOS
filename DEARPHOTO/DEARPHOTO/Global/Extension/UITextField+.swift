@@ -1,13 +1,12 @@
-//
-//  UITextField+.swift
-//  DEARPHOTO
-//
-//  Created by InJe Choi on 2022/03/05.
-//
 
 import UIKit
 
 extension UITextField {
+    func addLeftPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
+      
     func addRightPadding() {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: self.frame.height))
         self.rightView = paddingView
