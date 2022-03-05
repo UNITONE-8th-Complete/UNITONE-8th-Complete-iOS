@@ -31,7 +31,7 @@ class HomeAlbumDetailCVC: UICollectionViewCell {
 extension HomeAlbumDetailCVC {
     func cellComponentConfigure() {
         imageView.layer.cornerRadius = 8
-        imageView.backgroundColor = .orange
+//        imageView.backgroundColor = .orange
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         nameLabel.font = UIFont.boldSystemFont(ofSize: 10)
         dateLabel.font = UIFont.systemFont(ofSize: 10)

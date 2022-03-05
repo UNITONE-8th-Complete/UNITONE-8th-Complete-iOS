@@ -61,6 +61,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 n개의 앨범" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGm-Qu-Bgt">
+                                <rect key="frame" x="324" y="171.5" width="66" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,6 +77,8 @@
                             <constraint firstItem="5kO-SY-Dsq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="J8y-s0-MyE"/>
                             <constraint firstItem="5sO-y2-sEj" firstAttribute="centerY" secondItem="EcN-oj-8sk" secondAttribute="centerY" id="MhK-Gy-8gC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5sO-y2-sEj" secondAttribute="trailing" constant="40" id="Qgt-Zy-PsI"/>
+                            <constraint firstItem="AGm-Qu-Bgt" firstAttribute="centerY" secondItem="Eie-Dz-i0X" secondAttribute="centerY" id="Tdj-2Z-Qe3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AGm-Qu-Bgt" secondAttribute="trailing" constant="24" id="cji-GI-s28"/>
                             <constraint firstItem="Eie-Dz-i0X" firstAttribute="top" secondItem="EcN-oj-8sk" secondAttribute="bottom" constant="24" id="eC6-F3-IsU"/>
                             <constraint firstItem="EcN-oj-8sk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="o5s-bL-WNz"/>
                             <constraint firstItem="EcN-oj-8sk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="otZ-Wb-w6b"/>
@@ -84,6 +92,7 @@
                     <connections>
                         <outlet property="addAlbumButton" destination="mxm-3t-8mw" id="dNd-Y2-8pA"/>
                         <outlet property="albumCV" destination="5kO-SY-Dsq" id="JTJ-ga-2Ha"/>
+                        <outlet property="albumCount" destination="AGm-Qu-Bgt" id="pwq-A7-0ML"/>
                         <outlet property="albumLabel" destination="Eie-Dz-i0X" id="AJe-pr-knV"/>
                         <outlet property="searchButton" destination="5sO-y2-sEj" id="LMv-rq-yev"/>
                         <outlet property="searchTextField" destination="EcN-oj-8sk" id="Not-Nr-l64"/>

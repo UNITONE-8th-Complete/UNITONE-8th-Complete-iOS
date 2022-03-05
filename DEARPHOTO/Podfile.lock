@@ -27,7 +27,7 @@ PODS:
   - Then (2.7.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.5)
+  - Alamofire
   - BSImagePicker (~> 3.1)
   - DynamicBottomSheet
   - Kingfisher (~> 7.0)
@@ -70,6 +70,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 05a2bc1c438199e78a5f7bac3304421f837d75cd
+PODFILE CHECKSUM: db0184b5a2f36e5e6e9b926a024d9eee806a836f
 
 COCOAPODS: 1.11.2
