@@ -10,6 +10,7 @@ import Foundation
 enum TypeOfViewController {
     case tabBar
     case home
+    case add
     case camera
     case myPage
     case homeAlbumDetail
@@ -32,6 +33,13 @@ extension TypeOfViewController {
             
         case .homeAlbumDetail:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.homeAlbumDetailSB, storyboardId: Identifiers.homeAlbumDetailVC)
+
+        case .add:
+            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.gallerySB, storyboardId: Identifiers.addNC)
+        case .myPage:
+            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.myPageSB, storyboardId: Identifiers.myPageVC)
+        case .camera:
+            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.cameraSB, storyboardId: Identifiers.cameraVC)
         }
     }
 }

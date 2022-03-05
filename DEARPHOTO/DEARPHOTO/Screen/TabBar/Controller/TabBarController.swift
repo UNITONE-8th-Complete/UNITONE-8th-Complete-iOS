@@ -27,7 +27,7 @@ class TabBarController: UITabBarController {
     func setTabBar() {
         
         let homeTab = makeTabVC(vcType: .home, tabBarTitle: "Home", tabBarImage: "Home_UnSelected", tabBarSelectedImage: "")
-        let cameraTab = makeTabVC(vcType: .camera, tabBarTitle: "", tabBarImage: "Add_Default_", tabBarSelectedImage: "")
+        let cameraTab = makeTabVC(vcType: .add, tabBarTitle: "", tabBarImage: "Add_Default_", tabBarSelectedImage: "")
         let myPageTab = makeTabVC(vcType: .myPage, tabBarTitle: "MyPage", tabBarImage: "My_UnSelected", tabBarSelectedImage: "")
         
         homeTab.tabBarItem.imageInsets = UIEdgeInsets(top: -0.5, left: -0.5, bottom: -0.5, right: -35)

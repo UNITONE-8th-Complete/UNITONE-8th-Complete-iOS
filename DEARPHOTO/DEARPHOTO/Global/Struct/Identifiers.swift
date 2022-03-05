@@ -11,6 +11,7 @@ struct Identifiers {
     //MARK: - Storyboard
     static let tabBarSB = "TabBar"
     static let homeSB = "Home"
+    static let gallerySB = "Gallery"
     static let cameraSB = "Camera"
     static let myPageSB = "MyPage"
     static let homeAlbumDetailSB = "HomeAlbumDetail"
@@ -19,6 +20,8 @@ struct Identifiers {
     static let tabBarController = "TabBarController"
     static let homeNC = "HomeNC"
     static let homeVC = "HomeVC"
+    static let addNC = "AddNC"
+    static let galleryVC = "GalleryVC"
     static let cameraVC = "CameraVC"
     static let myPageVC = "MyPageVC"
     static let homeAlbumDetailVC = "HomeAlbumDetailVC"
@@ -26,6 +29,7 @@ struct Identifiers {
     //MARK: - Cell
     static let homeMainCVC = "HomeMainCVC"
     static let homeAlbumDetailCVC = "HomeAlbumDetailCVC"
+    static let overlayImageCVC = "OverlayImageCVC"
     
     //MARK: - View
     
