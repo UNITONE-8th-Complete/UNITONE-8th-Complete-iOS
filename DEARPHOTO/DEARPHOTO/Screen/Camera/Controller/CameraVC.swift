@@ -116,7 +116,7 @@ class CameraVC: UIViewController {
             let overlayViewHeight = overlayView.frame.height
             overlayOpacity -= (dragPosition / overlayViewHeight)
 
-            overlayView.layer.opacity = (overlayOpacity <= 0) ? 0.1 : Float(overlayOpacity) 
+            overlayView.layer.opacity = (overlayOpacity <= 0) ? 0.1 : Float(overlayOpacity)
         }
     }
 }
