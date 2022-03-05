@@ -26,7 +26,7 @@ class CameraVC: UIViewController {
         
         setupCameraView()
         setUpOverlayImageCV()
-        setUpOverlayViewOpacity()
+        setUpOverlayView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,8 +86,11 @@ class CameraVC: UIViewController {
         }
     }
     
-    func setUpOverlayViewOpacity() {
+    func setUpOverlayView() {
         overlayView.layer.opacity = 0.5
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(setUpOverlayViewOpacity))
+        overlayView.addGestureRecognizer(panGesture)
+        overlayView.isUserInteractionEnabled = true
     }
     
     func saveImage() {
@@ -103,6 +106,17 @@ class CameraVC: UIViewController {
                     PHAssetChangeRequest.creationRequestForAsset(from: image)
                 }, completionHandler: nil)
             }
+        }
+    }
+    
+    @objc func setUpOverlayViewOpacity(sender: UIPanGestureRecognizer) {
+        var overlayOpacity = 0.5
+        if sender.state == .changed {
+            let dragPosition = sender.translation(in: self.view).y
+            let overlayViewHeight = overlayView.frame.height
+            overlayOpacity -= (dragPosition / overlayViewHeight)
+
+            overlayView.layer.opacity = (overlayOpacity <= 0) ? 0.1 : Float(overlayOpacity) 
         }
     }
 }
