@@ -8,6 +8,9 @@
 import UIKit
 import AVFoundation
 import Photos
+import Then
+import RxSwift
+import RxCocoa
 
 class CameraVC: UIViewController {
     @IBOutlet weak var captureImageView: UIImageView!
@@ -20,10 +23,13 @@ class CameraVC: UIViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
     var selectedImages: [UIImage]?
+    let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavigationBar()
+        setUpView()
         setupCameraView()
         setUpOverlayImageCV()
         setUpOverlayView()
@@ -37,6 +43,45 @@ class CameraVC: UIViewController {
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         stillImageOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
+    func setUpView() {
+        view.backgroundColor = .black
+    }
+    
+    func setUpNavigationBar() {
+        navigationController?.setSubNaviBarTitle(navigationItem: self.navigationItem, title: "사진")
+        navigationController?.setNaviItemTintColor(navigationController: self.navigationController, color: .white)
+        
+        let doneButton = UIBarButtonItem()
+            .then {
+                $0.title = "완료"
+            }
+        
+        let backButton = UIBarButtonItem()
+            .then {
+                $0.image = UIImage(named: "BackButton")
+            }
+        
+        doneButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![0]
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: bag)
+        
+        backButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: bag)
+        
+        navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = backButton
     }
     
     func setupCameraView() {
@@ -80,6 +125,7 @@ class CameraVC: UIViewController {
     func setUpOverlayImageCV() {
         overlayCV.dataSource = self
         overlayCV.delegate = self
+        overlayCV.showsHorizontalScrollIndicator = false
         
         if let flowLayout = overlayCV.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
@@ -146,7 +192,7 @@ extension CameraVC: UICollectionViewDataSource {
         cell.overlayImage.image = selectedImages?[indexPath.row]
         cell.layer.cornerRadius = 8
         cell.layer.borderWidth = 2
-        cell.backgroundColor = .black
+        cell.backgroundColor = .gray2
         return cell
     }
     
@@ -165,7 +211,6 @@ extension CameraVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = overlayCV.cellForItem(at: indexPath) as! OverlayImageCVC
-        cell.layer.borderColor = UIColor.clear.cgColor
         cell.isReSelect = false
     }
 }
@@ -178,4 +223,7 @@ extension CameraVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         8
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+           return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        }
 }

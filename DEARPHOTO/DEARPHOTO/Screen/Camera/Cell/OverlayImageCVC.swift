@@ -14,7 +14,7 @@ class OverlayImageCVC: UICollectionViewCell {
     override var isSelected: Bool {
         didSet{
             if isSelected {
-                layer.borderColor = UIColor.red.cgColor
+                layer.borderColor = UIColor.retro_yellow.cgColor
             }
             else {
                 layer.borderColor = UIColor.clear.cgColor
