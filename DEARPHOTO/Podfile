@@ -19,5 +19,6 @@ target 'DEARPHOTO' do
   pod 'SnapKit'
   pod 'Then'
   pod "BSImagePicker", "~> 3.1"
+  pod 'Alamofire'
 
 end

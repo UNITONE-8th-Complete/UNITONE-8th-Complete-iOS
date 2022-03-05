@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.5.0)
   - BSImagePicker (3.3.1)
   - Differentiator (5.0.0)
   - DynamicBottomSheet (1.0.2):
@@ -26,6 +27,7 @@ PODS:
   - Then (2.7.0)
 
 DEPENDENCIES:
+  - Alamofire
   - BSImagePicker (~> 3.1)
   - DynamicBottomSheet
   - Kingfisher (~> 7.0)
@@ -39,6 +41,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - BSImagePicker
     - Differentiator
     - DynamicBottomSheet
@@ -53,6 +56,7 @@ SPEC REPOS:
     - Then
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   DynamicBottomSheet: b11ead81bf8ee494b26cbd16ff2312313e90d9e3
@@ -66,6 +70,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 8b0ba98ba36b527a6affe9560c6e2559bf19a101
+PODFILE CHECKSUM: db0184b5a2f36e5e6e9b926a024d9eee806a836f
 
 COCOAPODS: 1.11.2

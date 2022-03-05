@@ -19,6 +19,10 @@ class HomeMainCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }
 
 // MARK: - Change UI

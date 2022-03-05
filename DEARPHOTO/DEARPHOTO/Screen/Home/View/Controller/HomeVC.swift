@@ -8,6 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
+import SwiftUI
 
 class HomeVC: UIViewController {
    
@@ -16,6 +18,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var addAlbumButton: UIBarButtonItem!
     @IBOutlet weak var albumCV: UICollectionView!
+    @IBOutlet weak var albumCount: UILabel!
     private var collectionViewFlowLayout = UICollectionViewFlowLayout()
     
     var disposeBag = DisposeBag()
@@ -23,10 +26,18 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callGetAlbumDataAPI()
         configureNaviBarTitle()
         defaultConfiguration()
         setInitialUIValue()
         bindUI()
+        bindVM()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navigationController?.setNaviItemTintColor(navigationController: self.navigationController, color: .black)
     }
     
 }
@@ -34,8 +45,8 @@ class HomeVC: UIViewController {
 // MARK: - Navigation Bar Settings
 extension HomeVC {
     private func configureNaviBarTitle() {
-        let titleViewImage = UIImage(systemName: "heart.fill")
-        navigationItem.titleView = UIImageView(image: titleViewImage)
+        navigationItem.title = "DEAR PHOTO"
+        navigationController?.setNaviItemTintColor(navigationController: self.navigationController, color: .black)
     }
 }
 
@@ -54,6 +65,10 @@ extension HomeVC {
         albumCV.showsVerticalScrollIndicator = false
         albumCV.showsHorizontalScrollIndicator = false
         searchTextField.addRightPadding()
+    }
+    
+    func callGetAlbumDataAPI() {
+        homeMainVM.getAlbumDate()
     }
 }
 
@@ -78,6 +93,17 @@ extension HomeVC {
             })
             .disposed(by: disposeBag)
     }
+    
+    private func bindVM() {
+        homeMainVM.getDataSuccess
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.albumCV.reloadData()
+                self.albumCount.text = "총 \(self.homeMainVM.albumData.count)개의 앨범"
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: - CV Delegate
@@ -89,8 +115,9 @@ extension HomeVC: UICollectionViewDelegate {
             return
         }
         
-        // datasource의 indexPath.item번째 원소의 albumId 전달
-        // 그 id 토대로 detail data get 
+        let id = homeMainVM.albumData[indexPath.item].id
+        homeAlbumDetailVC.albumId = id
+        
         navigationController?.pushViewController(homeAlbumDetailVC, animated: true)
     }
 }
@@ -99,7 +126,7 @@ extension HomeVC: UICollectionViewDelegate {
 extension HomeVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        3
+        return homeMainVM.albumData.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -110,7 +137,18 @@ extension HomeVC: UICollectionViewDataSource {
         }
         
         cell.cellComponentConfigure()
-        cell.albumImageView.image = UIImage(systemName: "heart.fill")
+        let decodedData = homeMainVM.albumData[indexPath.item]
+        
+        cell.albumTitle.text = decodedData.title
+        cell.albumCreatedDate.text = decodedData.createdAt?.replacingOccurrences(of: "-", with: ".")
+        cell.albumImageView.image = decodedData.albumImage
+        cell.albumImageView.kf.setImage(with: URL(string: decodedData.image ?? ""),
+                                        placeholder: UIImage(named: "plus"),
+                                        options: [
+                                            .scaleFactor(UIScreen.main.scale),
+                                            .cacheOriginalImage
+                                        ])
+        cell.numberOfImages.text = "총 \(decodedData.postCount ?? 0)개의 사진"
         
         return cell
     }
