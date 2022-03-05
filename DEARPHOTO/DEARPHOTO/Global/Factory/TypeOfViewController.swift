@@ -25,8 +25,6 @@ extension TypeOfViewController {
         case .home:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.homeSB, storyboardId: Identifiers.homeNC)
             
-        case .camera:
-            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.cameraSB, storyboardId: Identifiers.cameraVC)
             
         case .myPage:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.myPageSB, storyboardId: Identifiers.myPageVC)
