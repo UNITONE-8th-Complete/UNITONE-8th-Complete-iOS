@@ -25,6 +25,7 @@ struct Identifiers {
     static let myPageVC = "MyPageVC"
     
     //MARK: - Cell
+    static let overlayImageCVC = "OverlayImageCVC"
     
     //MARK: - View
     

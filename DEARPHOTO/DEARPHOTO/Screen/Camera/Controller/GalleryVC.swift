@@ -7,8 +7,11 @@
 
 import UIKit
 import BSImagePicker
+import Photos
 
 class GalleryVC: UIViewController {
+    var selectedImages: [UIImage]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,9 +45,34 @@ extension GalleryVC {
         }, deselect: { (asset) in
         }, cancel: { (assets) in
         }, finish: { (assets) in
+            self.convertAssetToImages(assets)
+            
             guard let cameraVC = ViewControllerFactory.viewController(for: .camera) as? CameraVC else { return }
+            cameraVC.selectedImages = self.selectedImages
+            self.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(cameraVC, animated: true)
         }, completion: {
         })
+    }
+    
+    func convertAssetToImages(_ selectedAssets: [PHAsset]) {
+        selectedImages = selectedAssets.map {
+            let imageManager = PHImageManager.default()
+            let option = PHImageRequestOptions()
+            option.isSynchronous = true
+            var image = UIImage()
+            
+            imageManager.requestImage(for: $0,
+                                         targetSize: CGSize(width:300, height: 300),
+                                         contentMode: .aspectFit,
+                                         options: option) { (result, info) in
+                image = result!
+            }
+            
+            let data = image.jpegData(compressionQuality: 0.7)
+            let newImage = UIImage(data: data!)!
+            
+            return newImage
+        }
     }
 }

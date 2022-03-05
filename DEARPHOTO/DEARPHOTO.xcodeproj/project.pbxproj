@@ -10,6 +10,7 @@
 		2345504127D3A5FC00ACE548 /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345504027D3A5FC00ACE548 /* GalleryVC.swift */; };
 		2345504327D3A81500ACE548 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2345504227D3A81500ACE548 /* Gallery.storyboard */; };
 		2345504527D3A85600ACE548 /* AddNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345504427D3A85600ACE548 /* AddNC.swift */; };
+		2345504827D3BF3C00ACE548 /* OverlayImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2345504727D3BF3C00ACE548 /* OverlayImageCVC.swift */; };
 		235E280B27D3574800CC5D10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235E280A27D3574800CC5D10 /* AppDelegate.swift */; };
 		235E281427D3574800CC5D10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235E281327D3574800CC5D10 /* Assets.xcassets */; };
 		235E281727D3574800CC5D10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235E281527D3574800CC5D10 /* LaunchScreen.storyboard */; };
@@ -32,6 +33,7 @@
 		2345504027D3A5FC00ACE548 /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		2345504227D3A81500ACE548 /* Gallery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
 		2345504427D3A85600ACE548 /* AddNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNC.swift; sourceTree = "<group>"; };
+		2345504727D3BF3C00ACE548 /* OverlayImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayImageCVC.swift; sourceTree = "<group>"; };
 		235E280727D3574800CC5D10 /* DEARPHOTO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DEARPHOTO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		235E280A27D3574800CC5D10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		235E281327D3574800CC5D10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 				2345504427D3A85600ACE548 /* AddNC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2345504627D3BDBF00ACE548 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2345504727D3BF3C00ACE548 /* OverlayImageCVC.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		235E27FE27D3574800CC5D10 = {
@@ -210,6 +220,7 @@
 			children = (
 				2345503E27D3869B00ACE548 /* Storyboard */,
 				2345503F27D386A200ACE548 /* Controller */,
+				2345504627D3BDBF00ACE548 /* Cell */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -352,6 +363,7 @@
 			files = (
 				235E282427D359EB00CC5D10 /* TabBarController.swift in Sources */,
 				2345504127D3A5FC00ACE548 /* GalleryVC.swift in Sources */,
+				2345504827D3BF3C00ACE548 /* OverlayImageCVC.swift in Sources */,
 				235E283D27D35D0200CC5D10 /* CameraVC.swift in Sources */,
 				235E283727D35CDD00CC5D10 /* HomeVC.swift in Sources */,
 				235E282A27D35A9200CC5D10 /* StoryboardRepresentation.swift in Sources */,

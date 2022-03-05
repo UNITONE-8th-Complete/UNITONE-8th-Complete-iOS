@@ -12,15 +12,21 @@ import Photos
 class CameraVC: UIViewController {
     @IBOutlet weak var captureImageView: UIImageView!
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var overlayView: UIImageView!
+    @IBOutlet weak var overlayCV: UICollectionView!
     
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     
+    var selectedImages: [UIImage]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCameraView()
+        setUpOverlayImageCV()
+        setUpOverlayViewOpacity()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +77,19 @@ class CameraVC: UIViewController {
         }
     }
     
+    func setUpOverlayImageCV() {
+        overlayCV.dataSource = self
+        overlayCV.delegate = self
+        
+        if let flowLayout = overlayCV.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+        }
+    }
+    
+    func setUpOverlayViewOpacity() {
+        overlayView.layer.opacity = 0.5
+    }
+    
     func saveImage() {
         PHPhotoLibrary.requestAuthorization { status in
             guard status == .authorized else { return }
@@ -100,5 +119,49 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
         DispatchQueue.main.async {
             self.saveImage()
         }
+    }
+}
+
+extension CameraVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        selectedImages?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = overlayCV.dequeueReusableCell(withReuseIdentifier: Identifiers.overlayImageCVC, for: indexPath) as? OverlayImageCVC else { return UICollectionViewCell() }
+        cell.overlayImage.image = selectedImages?[indexPath.row]
+        cell.layer.cornerRadius = 8
+        cell.layer.borderWidth = 2
+        cell.backgroundColor = .black
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = overlayCV.cellForItem(at: indexPath) as! OverlayImageCVC
+        
+        if cell.isReSelect{
+            overlayCV.deselectItem(at: indexPath, animated: false)
+            overlayView.image = UIImage()
+        } else {
+            overlayView.image = cell.overlayImage.image
+            overlayView.contentMode = .scaleAspectFill
+        }
+        cell.isReSelect.toggle()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = overlayCV.cellForItem(at: indexPath) as! OverlayImageCVC
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.isReSelect = false
+    }
+}
+
+extension CameraVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        8
     }
 }
