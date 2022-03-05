@@ -12,6 +12,7 @@ enum TypeOfViewController {
     case home
     case camera
     case myPage
+    case homeAlbumDetail
 }
 
 extension TypeOfViewController {
@@ -19,12 +20,18 @@ extension TypeOfViewController {
         switch self {
         case .tabBar:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.tabBarSB, storyboardId: Identifiers.tabBarController)
+            
         case .home:
-            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.homeSB, storyboardId: Identifiers.homeVC)
+            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.homeSB, storyboardId: Identifiers.homeNC)
+            
         case .camera:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.cameraSB, storyboardId: Identifiers.cameraVC)
+            
         case .myPage:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.myPageSB, storyboardId: Identifiers.myPageVC)
+            
+        case .homeAlbumDetail:
+            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.homeAlbumDetailSB, storyboardId: Identifiers.homeAlbumDetailVC)
         }
     }
 }

@@ -13,6 +13,7 @@ struct Identifiers {
     static let homeSB = "Home"
     static let cameraSB = "Camera"
     static let myPageSB = "MyPage"
+    static let homeAlbumDetailSB = "HomeAlbumDetail"
     
     //MARK: - Controller
     static let tabBarController = "TabBarController"
@@ -20,8 +21,11 @@ struct Identifiers {
     static let homeVC = "HomeVC"
     static let cameraVC = "CameraVC"
     static let myPageVC = "MyPageVC"
+    static let homeAlbumDetailVC = "HomeAlbumDetailVC"
     
     //MARK: - Cell
+    static let homeMainCVC = "HomeMainCVC"
+    static let homeAlbumDetailCVC = "HomeAlbumDetailCVC"
     
     //MARK: - View
     
