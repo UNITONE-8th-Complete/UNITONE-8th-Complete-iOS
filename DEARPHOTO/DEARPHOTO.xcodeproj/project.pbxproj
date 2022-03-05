@@ -66,8 +66,23 @@
 				E30494EA9D8E1E124BFF2605 /* Pods-DEARPHOTO.debug.xcconfig */,
 				ED914257561192D24619E07C /* Pods-DEARPHOTO.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		2345503E27D3869B00ACE548 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				235E283A27D35CF400CC5D10 /* Camera.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2345503F27D386A200ACE548 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				235E283C27D35D0200CC5D10 /* CameraVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		235E27FE27D3574800CC5D10 = {
@@ -184,8 +199,8 @@
 		235E283427D35C8400CC5D10 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				235E283C27D35D0200CC5D10 /* CameraVC.swift */,
-				235E283A27D35CF400CC5D10 /* Camera.storyboard */,
+				2345503E27D3869B00ACE548 /* Storyboard */,
+				2345503F27D386A200ACE548 /* Controller */,
 			);
 			path = Camera;
 			sourceTree = "<group>";

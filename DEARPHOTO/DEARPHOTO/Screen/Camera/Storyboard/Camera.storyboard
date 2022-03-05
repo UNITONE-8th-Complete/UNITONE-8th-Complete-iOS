@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CameraVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CameraVC" id="Y6W-OH-hqX" customClass="CameraVC" customModule="DEARPHOTO" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-rB-a24">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SOA-rB-a24" secondAttribute="height" id="Gdi-xh-kxl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sN-4i-Myq">
+                                <rect key="frame" x="171" y="747" width="73" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="CKM-rP-aUp"/>
+                                    <constraint firstAttribute="width" constant="73" id="dJV-xb-MzA"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="didTakePhoto:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tNa-t4-VHd"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fJi-F4-tdR">
+                                <rect key="frame" x="20" y="762" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="GW2-7o-8VN"/>
+                                    <constraint firstAttribute="height" constant="42" id="X0f-ID-DF8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SOA-rB-a24" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="4di-ma-qq6"/>
+                            <constraint firstItem="SOA-rB-a24" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FhN-aW-gPt"/>
+                            <constraint firstItem="fJi-F4-tdR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="PTe-hH-fWF"/>
+                            <constraint firstItem="0sN-4i-Myq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="171" id="ZDA-B7-vMS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fJi-F4-tdR" secondAttribute="bottom" constant="58" id="icV-MR-DDs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0sN-4i-Myq" secondAttribute="bottom" constant="42" id="m0b-Mg-FKf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0sN-4i-Myq" secondAttribute="trailing" constant="170" id="x0j-rK-ho1"/>
+                            <constraint firstItem="SOA-rB-a24" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zQ1-JG-PkR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="captureImageView" destination="fJi-F4-tdR" id="Dua-fy-Mk6"/>
+                        <outlet property="previewView" destination="SOA-rB-a24" id="P50-lS-aB5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
