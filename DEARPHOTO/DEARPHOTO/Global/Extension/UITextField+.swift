@@ -1,9 +1,3 @@
-//
-//  UITextField+.swift
-//  DEARPHOTO
-//
-//  Created by 황윤경 on 2022/03/06.
-//
 
 import UIKit
 
@@ -12,6 +6,11 @@ extension UITextField {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.height))
         self.leftView = paddingView
         self.leftViewMode = ViewMode.always
+      
+    func addRightPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: self.frame.height))
+        self.rightView = paddingView
+        self.rightViewMode = ViewMode.always
     }
     
     func setPlaceholderColor(_ placeholderColor: UIColor) {
