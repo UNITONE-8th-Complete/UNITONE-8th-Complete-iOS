@@ -109,14 +109,13 @@ extension HomeAlbumDetailVC {
 extension HomeAlbumDetailVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        guard let homeAlbumDetailVC = ViewControllerFactory.viewController(for: .homeAlbumDetail) as? HomeAlbumDetailVC else {
+        guard let postDetailVC = ViewControllerFactory.viewController(for: .postDetail
+        ) as? PostDetailVC else {
             print("HomeAlbumDetailVC Casting Error!!!")
             return
         }
-
-        // datasource의 indexPath.item번째 원소의 albumId 전달
-        // 그 id 토대로 detail data get
-        navigationController?.pushViewController(homeAlbumDetailVC, animated: true)
+        self.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(postDetailVC, animated: true)
     }
 }
 

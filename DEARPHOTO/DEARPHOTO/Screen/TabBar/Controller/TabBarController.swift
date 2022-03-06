@@ -26,9 +26,9 @@ class TabBarController: UITabBarController {
     /// setTabBar - 탭바 Setting
     func setTabBar() {
         
-        let homeTab = makeTabVC(vcType: .home, tabBarTitle: "Home", tabBarImage: "Home_UnSelected", tabBarSelectedImage: "")
-        let cameraTab = makeTabVC(vcType: .add, tabBarTitle: "", tabBarImage: "Add_Default_", tabBarSelectedImage: "")
-        let myPageTab = makeTabVC(vcType: .myPage, tabBarTitle: "MyPage", tabBarImage: "My_UnSelected", tabBarSelectedImage: "")
+        let homeTab = makeTabVC(vcType: .home, tabBarTitle: "", tabBarImage: "Homelight", tabBarSelectedImage: "")
+        let cameraTab = makeTabVC(vcType: .add, tabBarTitle: "", tabBarImage: "add", tabBarSelectedImage: "")
+        let myPageTab = makeTabVC(vcType: .myPage, tabBarTitle: "", tabBarImage: "mypage", tabBarSelectedImage: "")
         
         homeTab.tabBarItem.imageInsets = UIEdgeInsets(top: -0.5, left: -0.5, bottom: -0.5, right: -35)
         cameraTab.tabBarItem.imageInsets = UIEdgeInsets(top: -40, left: -0.5, bottom: -0.5, right: -0.5)
@@ -36,8 +36,8 @@ class TabBarController: UITabBarController {
         
         // 탭바 스타일 설정
         tabBar.frame.size.height = 78
-        tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .black
+//        tabBar.tintColor = .black
+//        tabBar.unselectedItemTintColor = .black
         
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 2

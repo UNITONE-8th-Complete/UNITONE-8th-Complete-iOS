@@ -14,6 +14,7 @@ enum TypeOfViewController {
     case camera
     case myPage
     case homeAlbumDetail
+    case postDetail
 }
 
 extension TypeOfViewController {
@@ -34,10 +35,12 @@ extension TypeOfViewController {
 
         case .add:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.gallerySB, storyboardId: Identifiers.addNC)
-        case .myPage:
-            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.myPageSB, storyboardId: Identifiers.myPageVC)
+
         case .camera:
             return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.cameraSB, storyboardId: Identifiers.cameraVC)
+            
+        case .postDetail:
+            return StoryboardRepresentation(bundle: nil, storyboardName: Identifiers.postDetailSB, storyboardId: Identifiers.postDetailVC)
         }
     }
 }
