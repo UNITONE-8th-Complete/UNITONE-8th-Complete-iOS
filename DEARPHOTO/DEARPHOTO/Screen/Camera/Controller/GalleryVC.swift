@@ -26,8 +26,8 @@ extension GalleryVC {
     func configureImagePicker() {
         let imagePicker = ImagePickerController()
         
-        imagePicker.cancelButton.tintColor = .white
-        imagePicker.doneButton.tintColor = .white
+        imagePicker.cancelButton.tintColor = .primary
+        imagePicker.doneButton.tintColor = .primary
         imagePicker.settings.theme.selectionFillColor = .primary
         
         imagePicker.modalPresentationStyle = .fullScreen

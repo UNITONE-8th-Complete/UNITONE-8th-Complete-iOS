@@ -125,6 +125,7 @@ class CameraVC: UIViewController {
     func setUpOverlayImageCV() {
         overlayCV.dataSource = self
         overlayCV.delegate = self
+        overlayCV.backgroundColor = .clear
         overlayCV.showsHorizontalScrollIndicator = false
         
         if let flowLayout = overlayCV.collectionViewLayout as? UICollectionViewFlowLayout {
