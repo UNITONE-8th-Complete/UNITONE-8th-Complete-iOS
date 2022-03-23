@@ -1,2 +1,2 @@
-## 🔗 [자세한 설명](https://www.notion.so/UNITHON-2e3af28a6f124f368174cde93077b792)
+## 🔗 [자세한 설명](https://www.notion.so/unit-center/DEARPHOTO-0a5429a4f8544c9994c0f5c276df702e)
 
