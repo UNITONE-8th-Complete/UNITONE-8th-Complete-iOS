@@ -25,7 +25,8 @@ class GalleryVC: UIViewController {
 extension GalleryVC {
     func configureImagePicker() {
         let imagePicker = ImagePickerController()
-        
+        imagePicker.navigationBar.isTranslucent = false
+        imagePicker.navigationBar.barTintColor = .blue // Background color
         imagePicker.cancelButton.tintColor = .primary
         imagePicker.doneButton.tintColor = .primary
         imagePicker.settings.theme.selectionFillColor = .primary
